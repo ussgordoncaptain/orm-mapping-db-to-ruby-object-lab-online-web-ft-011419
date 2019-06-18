@@ -83,7 +83,8 @@ class Student
     DB[:conn].execute(sql, self.name, self.grade)
   end
   def self.all_students_in_grade_x(grade)
-    
+    sql = "SELECT * FROM students WHERE students.grade = ?"
+    rows = DB[:conn].e
   end
   
   def self.create_table
