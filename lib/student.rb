@@ -85,7 +85,7 @@ class Student
   def self.all_students_in_grade_x(grade)
     sql = "SELECT * FROM students WHERE students.grade = ?"
     rows = DB[:conn].execute(sql)
-    rows.maap do |data|
+    rows.map do |data|
       Student.new_from_db(data)
     end
   end
