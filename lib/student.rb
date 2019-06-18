@@ -84,7 +84,10 @@ class Student
   end
   def self.all_students_in_grade_x(grade)
     sql = "SELECT * FROM students WHERE students.grade = ?"
-    rows = DB[:conn].e
+    rows = DB[:conn].execute(sql)
+    rows.maap do |data|
+      Student.new_from_db(data)
+    end
   end
   
   def self.create_table
